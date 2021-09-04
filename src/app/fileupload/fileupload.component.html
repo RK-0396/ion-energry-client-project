@@ -1,0 +1,30 @@
+<div class='container mt-4'>
+    <h4 class='display-4 text-center mb-4'>
+        WELCOME TO ION ENERGY  
+    </h4>
+    <form (ngSubmit)="onSubmit($event)">
+        <div class='custom-file mb-4'>
+          <input type="file"  class='custom-file-input'  id='customFile' (change)="handleChange($event)">
+          <label class='custom-file-label' htmlFor='customFile'>
+            {{fileName}}
+          </label>
+        </div>
+         <input
+         data-testid='fileBrowseButton'
+          type='submit'
+          value='Send'
+          class="btn btn-primary" id="submitbtn"
+        />
+      </form>
+      
+        <h6 *ngIf="isFileUploaded && !showChart" class='text-center mt-4'>Successfully uploaded {{fileName}}</h6>
+    
+        <button *ngIf="isFileUploaded !showChart"
+          type='button'
+          class='btn btn-danger'
+          (click)="showTempGraph()"
+        >
+          Show chart
+        </button>
+  </div>
+  <app-temp-chart *ngIf="showChart" [linechartData]="linechartData"></app-temp-chart>

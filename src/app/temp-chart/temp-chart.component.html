@@ -1,0 +1,14 @@
+
+  
+  <div *ngIf="listOfTs && tempDtataVal && enableChart" class="chart-wrapper">
+    Temperature Vs Time Graph
+    <canvas baseChart 
+        [datasets]="lineChartData" 
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions"
+        [colors]="lineChartColors" 
+        [legend]="lineChartLegend" 
+        [chartType]="'line'" 
+        [plugins]="lineChartPlugins">
+    </canvas>
+</div>
